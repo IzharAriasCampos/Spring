@@ -7,5 +7,5 @@ public interface GameService {
 
 	public GameResponse addGame(GameRequest gameDto);
 	
-	public GameRequest getGame(String title);
+	public GameResponse getGame(String title);
 }

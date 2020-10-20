@@ -37,7 +37,7 @@ public class GameServiceImpl implements GameService{
 	}
 	
 	@Override
-	public GameRequest getGame(String title) {
+	public GameResponse getGame(String title) {
 		Optional<Game> game = gameRepo.findByTitle(title);
 		if(game.isPresent())
 			return converter.convert(game.get(),GameResponse.class);

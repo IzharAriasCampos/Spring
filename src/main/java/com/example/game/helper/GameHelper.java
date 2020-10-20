@@ -29,14 +29,14 @@ public class GameHelper {
 	
 	public Game convertGameRequestToGame(GameRequest gameRequest) {
 		Game game = converter.convert(gameRequest, Game.class);
-		List<Genre> gres = converter.convert(gameRequest.getGenre(), List<Genre>.class);
+		//For each
 		for (GenderEnum gr : gameRequest.getGenre()) {
 			Genre genre =converter.convert(gr, Genre.class);
 			game.getGenres().add(genre);
 		}
-		
-		List<Genre> genres = gameRequest.getGenre().stream().map(gr -> converter.convert(gr, Genre.class)).collect(Collectors.toList());
-		game.getGenres().addAll(genres);
+		//Map
+		//List<Genre> genres = gameRequest.getGenre().stream().map(gr -> converter.convert(gr, Genre.class)).collect(Collectors.toList());
+		//game.getGenres().addAll(genres);
 		return game;
 	}
 }
